@@ -187,3 +187,253 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Home hero: CSS-built pixel-art scene */
+.scene-stars {
+  position: absolute;
+  inset: 15% 10% auto;
+  height: 24%;
+}
+
+.scene-stars i {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 2px rgb(231 189 104 / 12%);
+}
+
+.scene-stars i:nth-child(1) {
+  top: 12%;
+  left: 18%;
+}
+
+.scene-stars i:nth-child(2) {
+  top: 35%;
+  left: 75%;
+}
+
+.scene-stars i:nth-child(3) {
+  top: 62%;
+  left: 46%;
+}
+
+.scene-stars i:nth-child(4) {
+  top: 4%;
+  left: 90%;
+}
+
+.scene-moon {
+  position: absolute;
+  top: 16%;
+  right: 16%;
+  width: 42px;
+  aspect-ratio: 1;
+  border: 6px solid #e7bd68;
+  background: #f4d58d;
+  box-shadow: 8px 8px 0 rgb(231 189 104 / 12%);
+}
+
+.scene-hill {
+  position: absolute;
+  inset-inline: -15%;
+  height: 38%;
+  transform: rotate(-8deg);
+  border: 1px solid rgb(145 201 163 / 15%);
+}
+
+.scene-hill-back {
+  top: 34%;
+  background: #1b3839;
+  clip-path: polygon(
+    0 55%,
+    20% 18%,
+    42% 60%,
+    64% 8%,
+    100% 54%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.scene-hill-front {
+  top: 44%;
+  background: #24473f;
+  clip-path: polygon(
+    0 55%,
+    22% 12%,
+    45% 48%,
+    70% 20%,
+    100% 44%,
+    100% 100%,
+    0 100%
+  );
+}
+
+.scene-ground {
+  position: absolute;
+  inset-inline: 8%;
+  bottom: 20%;
+  height: 30%;
+  transform: perspective(400px) rotateX(48deg) rotateZ(-5deg);
+  border: 2px solid #56755d;
+  background-color: #315b49;
+  background-image:
+    linear-gradient(rgb(244 240 223 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(244 240 223 / 7%) 1px, transparent 1px);
+  background-size: 28px 28px;
+  box-shadow: 0 14px 0 #172d2d;
+}
+
+.scene-path {
+  position: absolute;
+  top: 0;
+  left: 43%;
+  width: 22%;
+  height: 100%;
+  background: #9c8a62;
+  border-inline: 2px solid #c2ad79;
+  clip-path: polygon(20% 0, 100% 0, 80% 100%, 0 100%);
+}
+
+.scene-tile {
+  position: absolute;
+  width: 20px;
+  aspect-ratio: 1;
+  border: 2px solid rgb(244 240 223 / 25%);
+  background: #71916b;
+}
+
+.scene-tile-one {
+  top: 22%;
+  left: 20%;
+}
+
+.scene-tile-two {
+  top: 55%;
+  right: 18%;
+  background: #8da66e;
+}
+
+.scene-tile-three {
+  top: 12%;
+  right: 12%;
+  background: #4a765a;
+}
+
+.scene-tree {
+  position: absolute;
+  bottom: 40%;
+  width: 48px;
+  height: 86px;
+}
+
+.scene-tree-left {
+  left: 14%;
+}
+
+.scene-tree-right {
+  right: 12%;
+  bottom: 42%;
+  transform: scale(0.8);
+}
+
+.scene-tree-crown {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 44px;
+  height: 48px;
+  border: 3px solid #18352f;
+  background: #4d8059;
+  box-shadow:
+    -8px 8px 0 #315b49,
+    8px 8px 0 #315b49,
+    0 8px 0 #24473f;
+}
+
+.scene-tree-trunk {
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  width: 14px;
+  height: 36px;
+  border: 2px solid #302d28;
+  background: #806044;
+}
+
+.scene-character {
+  position: absolute;
+  z-index: 1;
+  bottom: 32%;
+  left: 50%;
+  width: 44px;
+  height: 72px;
+  transform: translateX(-50%);
+  filter: drop-shadow(5px 6px 0 rgb(8 15 20 / 35%));
+}
+
+.scene-character-hair {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 28px;
+  height: 18px;
+  border: 3px solid #18252a;
+  background: #6e4c3a;
+}
+
+.scene-character-face {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+  width: 24px;
+  height: 20px;
+  border: 2px solid #18252a;
+  background: #e9c19a;
+}
+
+.scene-character-face::after {
+  position: absolute;
+  right: 3px;
+  bottom: 5px;
+  width: 4px;
+  height: 4px;
+  background: #18252a;
+  content: "";
+  box-shadow: -10px 0 #18252a;
+}
+
+.scene-character-body {
+  position: absolute;
+  top: 31px;
+  left: 5px;
+  width: 34px;
+  height: 25px;
+  border: 3px solid #18252a;
+  background: #d9a16a;
+}
+
+.scene-character-legs {
+  position: absolute;
+  bottom: 0;
+  left: 8px;
+  width: 10px;
+  height: 16px;
+  background: #253d47;
+  box-shadow: 17px 0 #253d47;
+}
+
+@media (max-width: 420px) {
+  .scene-ground {
+    inset-inline: 3%;
+  }
+
+  .scene-tree-left {
+    left: 7%;
+  }
+
+  .scene-tree-right {
+    right: 5%;
+  }
+}
