@@ -49,6 +49,9 @@ These commands are available as project scripts. The checks have passed in the c
 - `src/app/`: routing, metadata, page composition, and global styles.
 - Future `src/game/`: Phaser scenes, controls, collision rules, and adapters. Keep it separate and dynamically loaded only from `/[locale]/adventure`.
 
+See [docs/architecture.md](docs/architecture.md) for detailed architecture
+notes and planned game boundaries.
+
 ## Asset policy
 
 Review license, attribution, source resolution, and permitted use for each existing sprite, tileset, font, and sound before shipping. Do not add assets of unknown provenance.
