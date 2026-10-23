@@ -29,7 +29,10 @@ export default async function HomePage({ params }: HomePageProps) {
         <Link href={`/${rawLocale}`} className="font-semibold tracking-wide">
           ABD / DEV
         </Link>
-        <nav aria-label={text.languageNavigation} className="flex gap-3 text-sm">
+        <nav
+          aria-label={text.languageNavigation}
+          className="flex gap-3 text-sm"
+        >
           {(["en", "fr", "ar"] as const).map((language) => (
             <Link
               key={language}
@@ -53,7 +56,10 @@ export default async function HomePage({ params }: HomePageProps) {
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
             {text.eyebrow}
           </p>
-          <h1 id="hero-title" className="text-4xl font-bold leading-tight sm:text-6xl">
+          <h1
+            id="hero-title"
+            className="text-4xl font-bold leading-tight sm:text-6xl"
+          >
             {text.headline}
           </h1>
           <p className="mt-6 max-w-xl text-lg text-[var(--color-muted)]">
@@ -97,7 +103,8 @@ export default async function HomePage({ params }: HomePageProps) {
               </div>
             </div>
             <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg)]/95 px-4 py-2 text-center text-sm">
-              <span className="text-[var(--color-accent)]">◆</span> {text.heroStatus}
+              <span className="text-[var(--color-accent)]">◆</span>{" "}
+              {text.heroStatus}
             </div>
           </div>
           <div className="absolute bottom-4 left-4 right-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)]/95 p-3 sm:p-4">
@@ -106,7 +113,10 @@ export default async function HomePage({ params }: HomePageProps) {
             </p>
             <div className="mt-2 grid grid-cols-2 gap-2 text-sm sm:grid-cols-3">
               {text.menuItems.map((item) => (
-                <span key={item} className="rounded-md bg-[var(--color-panel-raised)] px-3 py-2">
+                <span
+                  key={item}
+                  className="rounded-md bg-[var(--color-panel-raised)] px-3 py-2"
+                >
                   ▸ {item}
                 </span>
               ))}
