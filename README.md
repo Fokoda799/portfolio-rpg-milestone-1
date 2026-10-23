@@ -24,14 +24,23 @@ Open http://localhost:3000/en. The root route redirects to `/en`.
 
 ## Quality checks
 
+Run the following commands before committing changes or considering a task complete:
+
 ```bash
 pnpm typecheck
 pnpm lint
 pnpm test
 pnpm build
+pnpm format:check
 ```
 
-These commands are provided as project scripts. They have not been run in the target repository as this bundle is a starter deliverable, not a modification of your local checkout.
+To automatically format project files, run:
+
+```bash
+pnpm format
+```
+
+These commands are available as project scripts. The checks have passed in the current development environment; run them again after subsequent changes to verify the latest code.
 
 ## Architecture boundaries
 
