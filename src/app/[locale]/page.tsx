@@ -17,36 +17,13 @@ export default async function HomePage({ params }: HomePageProps) {
   const text = copy[rawLocale];
 
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-12">
+    <main className="mx-auto flex min-h-[60vh] w-full max-w-7xl flex-col px-5 py-6 sm:px-8 lg:px-12">
       <a
         href="#main-content"
         className="sr-only z-50 rounded bg-white px-4 py-2 text-black focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
       >
         {text.skipToContent}
       </a>
-
-      <header className="flex items-center justify-between gap-4 border-b border-[var(--color-border)] pb-5">
-        <Link href={`/${rawLocale}`} className="font-semibold tracking-wide">
-          ABD / DEV
-        </Link>
-        <nav
-          aria-label={text.languageNavigation}
-          className="flex gap-3 text-sm"
-        >
-          {(["en", "fr", "ar"] as const).map((language) => (
-            <Link
-              key={language}
-              href={`/${language}`}
-              hrefLang={language}
-              aria-current={language === rawLocale ? "page" : undefined}
-              className="rounded px-2 py-1 text-[var(--color-muted)] hover:text-[var(--color-text)] aria-[current=page]:bg-[var(--color-panel-raised)] aria-[current=page]:text-[var(--color-text)]"
-            >
-              {language.toUpperCase()}
-            </Link>
-          ))}
-        </nav>
-      </header>
-
       <section
         id="main-content"
         className="grid flex-1 items-center gap-10 py-12 lg:grid-cols-[1.1fr_0.9fr] lg:py-20"
@@ -124,11 +101,6 @@ export default async function HomePage({ params }: HomePageProps) {
           </div>
         </div>
       </section>
-
-      <footer className="flex flex-wrap justify-between gap-3 border-t border-[var(--color-border)] py-5 text-xs text-[var(--color-muted)]">
-        <span>© {new Date().getFullYear()} Abdellah</span>
-        <span>{text.placeholderNotice}</span>
-      </footer>
     </main>
   );
 }

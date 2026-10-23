@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, localeDirection } from "@/lib/i18n/config";
 import "../globals.css";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
@@ -44,7 +46,11 @@ export default async function LocaleLayout({
 
   return (
     <html lang={rawLocale} dir={localeDirection(rawLocale)}>
-      <body>{children}</body>
+      <body className="flex min-h-screen flex-col">
+        <SiteHeader locale={rawLocale} />
+        <div className="flex-1">{children}</div>
+        <SiteFooter locale={rawLocale} />
+      </body>
     </html>
   );
 }
