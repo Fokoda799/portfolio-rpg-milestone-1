@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { isLocale, localeDirection } from "@/lib/i18n/config";
+import "../globals.css";
 
 type LocaleLayoutProps = Readonly<{
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>;
 
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "fr" }, { locale: "ar" }];
+}
+
 export async function generateMetadata({
   params,
 }: LocaleLayoutProps): Promise<Metadata> {
   const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) return {};
+
+  if (!isLocale(rawLocale)) {
+    return {};
+  }
+
   return {
     alternates: {
       languages: {
@@ -28,11 +37,14 @@ export default async function LocaleLayout({
   params,
 }: LocaleLayoutProps) {
   const { locale: rawLocale } = await params;
-  if (!isLocale(rawLocale)) notFound();
+
+  if (!isLocale(rawLocale)) {
+    notFound();
+  }
 
   return (
-    <section lang={rawLocale} dir={localeDirection(rawLocale)}>
-      {children}
-    </section>
+    <html lang={rawLocale} dir={localeDirection(rawLocale)}>
+      <body>{children}</body>
+    </html>
   );
 }
