@@ -1,3 +1,8 @@
+@import "@fontsource/press-start-2p/400.css";
+@import "@fontsource/pixelify-sans/400.css";
+@import "@fontsource/pixelify-sans/600.css";
+@import "@fontsource/noto-sans-arabic/400.css";
+@import "@fontsource/noto-sans-arabic/700.css";
 @import "tailwindcss";
 
 :root {
@@ -25,6 +30,14 @@
   --color-border-strong: #728780;
   --color-overlay: rgb(8 15 20 / 78%);
 
+  --font-pixel-display: "Press Start 2P", monospace;
+  --font-pixel-body: "Pixelify Sans", "Noto Sans Arabic", monospace;
+  --pixel-frame-dark: #0a151d;
+  --pixel-frame-mid: #385b58;
+  --pixel-frame-light: #6c8b7f;
+  --pixel-panel-deep: #0d2029;
+  --pixel-panel-navy: #102631;
+
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
   --radius-panel: 0.75rem;
@@ -46,8 +59,8 @@
   --space-16: 4rem;
 
   /* Typography */
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: var(--font-pixel-body);
+  --font-display: var(--font-pixel-display);
 
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -152,8 +165,8 @@ button {
 
 .pixel-frame {
   border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-panel);
-  background: linear-gradient(145deg, rgb(34 57 66 / 96%), rgb(25 42 50 / 98%));
+  border-radius: 0;
+  background: var(--color-panel);
   box-shadow: var(--shadow-panel);
 }
 
@@ -435,5 +448,109 @@ button {
 
   .scene-tree-right {
     right: 5%;
+  }
+}
+
+/* Shared RPG pixel UI primitives */
+.pixel-panel {
+  border: 2px solid var(--pixel-frame-dark);
+  background: var(--color-panel);
+  color: var(--color-text);
+  box-shadow:
+    inset 0 0 0 2px var(--pixel-frame-mid),
+    inset 0 0 0 4px var(--pixel-frame-dark),
+    4px 4px 0 rgb(4 10 14 / 70%);
+}
+
+.pixel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  border: 2px solid var(--pixel-frame-dark);
+  background: var(--color-panel-raised);
+  color: var(--color-text);
+  font-family: var(--font-pixel-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow:
+    inset 0 0 0 2px var(--color-border),
+    3px 3px 0 #071016;
+  transition:
+    background-color 120ms ease,
+    border-color 120ms ease,
+    transform 80ms ease;
+}
+
+.pixel-button:hover {
+  border-color: var(--color-focus);
+  background: var(--color-panel-hover);
+}
+
+.pixel-button:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    inset 0 0 0 2px var(--color-border),
+    1px 1px 0 #071016;
+}
+
+.pixel-button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.pixel-button--primary {
+  border-color: var(--pixel-frame-dark);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  box-shadow:
+    inset 0 0 0 2px #f5d27d,
+    3px 3px 0 #071016;
+}
+
+.pixel-button--primary:hover {
+  border-color: var(--pixel-frame-dark);
+  background: var(--color-focus);
+}
+
+.pixel-button:disabled,
+.pixel-button[aria-disabled="true"] {
+  cursor: not-allowed;
+  filter: saturate(0.35);
+  opacity: 0.55;
+  transform: none;
+}
+
+.pixel-hud {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--pixel-frame-dark);
+  background: var(--pixel-panel-navy);
+  color: var(--color-text);
+  box-shadow:
+    inset 0 0 0 2px var(--pixel-frame-mid),
+    3px 3px 0 #071016;
+  font-family: var(--font-pixel-body);
+}
+
+:lang(ar) {
+  --font-pixel-body: "Noto Sans Arabic", "Pixelify Sans", monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-button {
+    transition: none;
+  }
+
+  .pixel-button:active {
+    transform: none;
   }
 }

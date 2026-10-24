@@ -20,25 +20,36 @@ export function DialogueBox({
   showContinue,
 }: DialogueBoxProps) {
   return (
-    <section aria-label={speaker} className="rpg-dialogue pixel-frame">
-      <p className="rpg-dialogue-speaker">{speaker}</p>
+    <section aria-label={speaker} className="rpg-dialogue">
+      <header className="rpg-dialogue-header">
+        <span className="rpg-dialogue-speaker-mark" aria-hidden="true">
+          ◆
+        </span>
+        <p className="rpg-dialogue-speaker">{speaker}</p>
+      </header>
 
-      <p aria-live="polite" aria-atomic="true" className="rpg-dialogue-text">
-        {message}
-      </p>
+      <div className="rpg-dialogue-viewport">
+        <p aria-live="polite" aria-atomic="true" className="rpg-dialogue-text">
+          {message}
+        </p>
+        <span className="rpg-dialogue-caret" aria-hidden="true">
+          ▼
+        </span>
+      </div>
 
       <div className="rpg-dialogue-actions">
         {showContinue && (
           <button
             type="button"
             onClick={onContinue}
-            className="rpg-dialogue-continue"
+            className="pixel-button pixel-button--primary"
           >
-            {continueLabel} <span aria-hidden="true">▸</span>
+            {continueLabel}
+            <span aria-hidden="true">▸</span>
           </button>
         )}
 
-        <button type="button" onClick={onSkip} className="rpg-dialogue-skip">
+        <button type="button" onClick={onSkip} className="pixel-button">
           {skipLabel}
         </button>
       </div>
