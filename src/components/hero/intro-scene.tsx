@@ -1,5 +1,7 @@
 import type { Locale } from "@/lib/i18n/config";
 import { copy } from "@/lib/i18n/copy";
+import Image from "next/image";
+import { IdleSprite } from "./idle-sprite";
 
 type IntroSceneProps = Readonly<{
   locale: Locale;
@@ -42,11 +44,8 @@ export function IntroScene({ locale }: IntroSceneProps) {
         <span className="scene-tree-trunk" />
       </div>
 
-      <div aria-hidden="true" className="scene-character scene-character-idle">
-        <span className="scene-character-hair" />
-        <span className="scene-character-face" />
-        <span className="scene-character-body" />
-        <span className="scene-character-legs" />
+      <div aria-hidden="true" className="scene-character">
+        <IdleSprite size={320} frameRate={6} />
       </div>
     </div>
   );
