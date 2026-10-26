@@ -74,6 +74,25 @@
 .rpg-skip-button,
 .rpg-menu-list a {
   font-family: var(--font-pixel-body);
+}
+
+.rpg-menu,
+.rpg-identity {
+  margin-inline: auto;
+  border: 3px solid var(--pixel-frame-dark);
+  background: var(--pixel-panel-navy);
+  box-shadow:
+    inset 0 0 0 2px var(--pixel-frame-mid),
+    inset 0 0 0 5px #0b1a22,
+    0 0 0 2px var(--pixel-frame-light),
+    7px 7px 0 rgb(4 10 14 / 70%);
+  color: var(--color-text);
+  padding: 0.9rem 1rem 1rem;
+}
+
+.rpg-dialogue {
+  position: relative;
+  width: min(100%, 54rem);
   margin-inline: auto;
   border: 3px solid var(--pixel-frame-dark);
   background: var(--pixel-panel-navy);
@@ -144,8 +163,14 @@
   min-height: 4.5rem;
   border: 2px solid #294b4b;
   background:
-    linear-gradient(rgb(255 255 255 / 2%) 1px, transparent 1px), #0d2029;
-  background-size: 100% 4px;
+    repeating-linear-gradient(
+      0deg,
+      rgb(255 255 255 / 3%) 0,
+      rgb(255 255 255 / 3%) 1px,
+      transparent 1px,
+      transparent 4px
+    ),
+    #0d2029;
   padding: 0.85rem 2.25rem 0.75rem 0.9rem;
 }
 
@@ -176,15 +201,6 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 1rem;
-}
-
-.rpg-dialogue-actions button,
-.rpg-start-button,
-.rpg-skip-button {
-  min-height: 2.75rem;
-  border: 2px solid var(--color-border-strong);
-  padding: 0.65rem 1rem;
-  cursor: pointer;
 }
 
 .rpg-start-button,
@@ -223,17 +239,10 @@
   outline-offset: 3px;
 }
 
-.rpg-dialogue-continue,
 .rpg-start-button {
   background: var(--color-accent);
   color: var(--color-text-inverse);
   font-weight: 700;
-}
-
-.rpg-dialogue-skip,
-.rpg-skip-button {
-  background: var(--color-panel-raised);
-  color: var(--color-text);
 }
 
 .rpg-skip-button {

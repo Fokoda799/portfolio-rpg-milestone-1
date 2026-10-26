@@ -543,6 +543,7 @@ button {
 
 :lang(ar) {
   --font-pixel-body: "Noto Sans Arabic", "Pixelify Sans", monospace;
+  --font-pixel-display: "Noto Sans Arabic", "Pixelify Sans", sans-serif;
 }
 
 @media (prefers-reduced-motion: reduce) {
